@@ -110,6 +110,13 @@ html{scroll-behavior:smooth}
 .ctabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:0 0 14px}
 .ctab{font-family:var(--body);font-size:16px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 2px;min-height:48px;cursor:pointer}
 .ctab[aria-pressed="true"]{background:var(--sea);color:#fff;border-color:var(--sea)}
+.wait{display:inline-block;font-size:15px;font-weight:700;color:#b35a00;background:#fff1e0;border:1.5px solid #e8a35a;border-radius:999px;padding:0 10px}
+.ctop{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.mode{font-size:15px;font-weight:700;border-radius:999px;padding:1px 12px;border:2px solid}
+.mode.walk{color:#22764a;border-color:#22764a;background:#eaf5ee}
+.mode.car{color:#3d5bd9;border-color:#3d5bd9;background:#eef1fd}
+.route .wait{margin-left:6px;vertical-align:2px;font-size:13px}
+.extra{font-size:16px;color:var(--sub);background:var(--paper);border-radius:10px;padding:10px 14px;margin:14px 0 0}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -144,7 +151,7 @@ html{scroll-behavior:smooth}
 <button class="tab" id="tab-cafe" type="button" aria-pressed="false" data-f="cafe">카페</button>
 <button class="tab" id="tab-spot" type="button" aria-pressed="false" data-f="spot">여행지</button>
 </div>
-<p class="legend"><span class="star">✿</span> 표시는 저희가 특히 추천하는 곳이에요</p>
+<p class="legend"><span class="star">✿</span> 미쉐린 가이드 선정 · <span class="wait">웨이팅 주의</span> 줄 서는 곳</p>
 <div class="list" id="list"></div>
 </section>
 <section class="section" aria-labelledby="course-h">
@@ -153,54 +160,51 @@ html{scroll-behavior:smooth}
 <div class="ctabs" role="group" aria-label="코스 고르기"><button class="ctab" type="button" aria-pressed="true" data-c="1">코스 1</button><button class="ctab" type="button" aria-pressed="false" data-c="2">코스 2</button><button class="ctab" type="button" aria-pressed="false" data-c="3">코스 3</button><button class="ctab" type="button" aria-pressed="false" data-c="4">코스 4</button><button class="ctab" type="button" aria-pressed="false" data-c="5">코스 5</button></div>
 <div class="courses">
 <article class="course">
-<div class="chead"><span class="cno">코스 1</span><h3>해운대 시내 걸어서 먹방</h3><span class="total">총 약 4시간 30분</span><span class="when">걸어서 · 점심 무렵 출발</span></div>
+<div class="chead"><div class="ctop"><span class="cno">코스 1</span><span class="mode walk">도보 코스</span></div><h3>마린시티 → 해운대시장 산책</h3><span class="total">총 약 3시간</span><span class="when">예식 끝나고 오후 출발 · 택시 1번</span></div>
 <ol class="route">
-<li><a class="sn food" href="#p-2" aria-label="2번 장소 설명 보기">2</a><b>엄용백돼지국밥 해운대점</b><span class="d">점심 · 돼지국밥과 수육 (약 50분)</span><span class="mv">↓ 걸어서 5분</span></li>
+<li><a class="sn cafe" href="#p-18" aria-label="18번 장소 설명 보기">18</a><b>옵스 마린시티점</b><span class="d">빵과 커피 한잔, 슈크림 · 치즈만주는 선물용으로 (약 40분)</span><span class="mv">↓ 택시 5분</span></li>
 <li><a class="sn spot" href="#p-21" aria-label="21번 장소 설명 보기">21</a><b>해운대전통시장</b><span class="d">시장 골목 구경 (약 30분)</span><span class="mv">↓ 시장 안</span></li>
-<li><a class="sn food" href="#p-7" aria-label="7번 장소 설명 보기">7</a><b>상국이네</b><span class="d">떡볶이 · 어묵 간식 (약 20분)</span><span class="mv">↓ 걸어서 15분</span></li>
-<li><a class="sn spot" href="#p-20" aria-label="20번 장소 설명 보기">20</a><b>클럽디오아시스</b><span class="d">엘시티 해수온천에서 몸 녹이기 (약 1시간 30분)</span><span class="mv">↓ 택시 5분</span></li>
-<li><a class="sn food" href="#p-1" aria-label="1번 장소 설명 보기">1</a><b>나가하마만게츠</b><span class="d">저녁 · 돈코츠 라멘 (약 40분)</span></li>
+<li><a class="sn food" href="#p-7" aria-label="7번 장소 설명 보기">7</a><b>상국이네<span class="wait">웨이팅 주의</span></b><span class="d">떡볶이 · 어묵 간식 (약 20분)</span><span class="mv">↓ 도보 10분</span></li>
+<li><a class="sn food" href="#p-6" aria-label="6번 장소 설명 보기">6</a><b>해운대암소갈비집<span class="wait">웨이팅 주의</span></b><span class="d">저녁 · 생갈비 · 양념갈비 (약 1시간 10분). 대기가 길면 근처 1 나가하마만게츠 · 2 엄용백돼지국밥도 도보 거리예요</span></li>
 </ol>
 </article>
 <article class="course">
-<div class="chead"><span class="cno">코스 2</span><h3>기장 바닷가 카페 드라이브</h3><span class="total">총 약 5시간</span><span class="when">차로 · 오전 출발</span></div>
+<div class="chead"><div class="ctop"><span class="cno">코스 2</span><span class="mode car">자차 코스</span></div><h3>기장 바닷가 카페 드라이브</h3><span class="total">총 약 5시간</span><span class="when">오전 출발</span></div>
 <ol class="route">
-<li><a class="sn cafe" href="#p-13" aria-label="13번 장소 설명 보기">13</a><b>제이엠커피로스터스 부산본점</b><span class="d">대변항 앞 바다 보며 커피 (약 1시간)</span><span class="mv">↓ 차 10분</span></li>
-<li><a class="sn food" href="#p-8" aria-label="8번 장소 설명 보기">8</a><b>일광아구찜</b><span class="d">점심 · 기장식 아구찜 (약 1시간)</span><span class="mv">↓ 차 5분</span></li>
-<li><a class="sn cafe" href="#p-14" aria-label="14번 장소 설명 보기">14</a><b>오프오</b><span class="d">오션뷰 베이커리 (약 50분)</span><span class="mv">↓ 차 5분</span></li>
-<li><a class="sn cafe" href="#p-16" aria-label="16번 장소 설명 보기">16</a><b>칠암사계</b><span class="d">칠암돌만주 사서 선물로 (약 40분)</span><span class="mv">↓ 차 15분</span></li>
+<li><a class="sn cafe" href="#p-13" aria-label="13번 장소 설명 보기">13</a><b>제이엠커피로스터스 부산본점</b><span class="d">대변항 앞 바다 보며 커피 (약 1시간)</span><span class="mv">↓ 자차 10분</span></li>
+<li><a class="sn food" href="#p-8" aria-label="8번 장소 설명 보기">8</a><b>일광아구찜</b><span class="d">점심 · 기장식 아구찜 (약 1시간). 가게 주차가 어려워 근처 공영주차장 이용</span><span class="mv">↓ 자차 5분</span></li>
+<li><a class="sn cafe" href="#p-14" aria-label="14번 장소 설명 보기">14</a><b>오프오</b><span class="d">오션뷰 베이커리 (약 50분)</span><span class="mv">↓ 자차 5분</span></li>
+<li><a class="sn cafe" href="#p-16" aria-label="16번 장소 설명 보기">16</a><b>칠암사계</b><span class="d">칠암돌만주 사서 선물로 (약 30분)</span><span class="mv">↓ 자차 15분</span></li>
 <li><a class="sn cafe" href="#p-17" aria-label="17번 장소 설명 보기">17</a><b>웨이브온커피</b><span class="d">장안 바다 전망 카페에서 마무리 (약 1시간)</span></li>
 </ol>
 </article>
 <article class="course">
-<div class="chead"><span class="cno">코스 3</span><h3>미포 · 송정 해변열차</h3><span class="total">총 약 5시간 30분</span><span class="when">차 + 해변열차 · 아침 출발 (예식 다음 날 추천)</span></div>
+<div class="chead"><div class="ctop"><span class="cno">코스 3</span><span class="mode walk">도보 코스</span></div><h3>미포 해수온천 & 해변열차</h3><span class="total">총 약 6시간</span><span class="when">아침 출발 · 예식 다음 날 추천 · 택시 1번</span></div>
 <ol class="route">
-<li><a class="sn food" href="#p-4" aria-label="4번 장소 설명 보기">4</a><b>속시원한대구탕 미포본점</b><span class="d">아침 · 맑은 대구탕으로 해장 (약 40분)</span><span class="mv">↓ 차 5분</span></li>
-<li><a class="sn cafe" href="#p-12" aria-label="12번 장소 설명 보기">12</a><b>비비비당</b><span class="d">달맞이길 찻집에서 바다 보며 전통차 (약 1시간)</span><span class="mv">↓ 차 5분</span></li>
-<li><a class="sn spot" href="#p-22" aria-label="22번 장소 설명 보기">22</a><b>해운대블루라인파크</b><span class="d">미포에서 해변열차 타고 송정까지 (약 1시간)</span><span class="mv">↓ 걸어서 10분</span></li>
-<li><a class="sn food" href="#p-3" aria-label="3번 장소 설명 보기">3</a><b>송정횟집</b><span class="d">점심 · 모둠회 (약 1시간 20분)</span><span class="mv">↓ 차 10분</span></li>
-<li><a class="sn cafe" href="#p-15" aria-label="15번 장소 설명 보기">15</a><b>갓샷</b><span class="d">해동용궁사 가는 길 오션뷰 카페 (약 1시간)</span></li>
+<li><a class="sn food" href="#p-4" aria-label="4번 장소 설명 보기">4</a><b>속시원한대구탕 미포본점<span class="wait">웨이팅 주의</span></b><span class="d">아침 · 맑은 대구탕으로 해장 (약 40분)</span><span class="mv">↓ 도보 5분</span></li>
+<li><a class="sn spot" href="#p-22" aria-label="22번 장소 설명 보기">22</a><b>해운대블루라인파크</b><span class="d">미포 → 청사포 해변열차 왕복 (약 1시간)</span><span class="mv">↓ 도보 5분</span></li>
+<li><a class="sn spot" href="#p-20" aria-label="20번 장소 설명 보기">20</a><b>클럽디오아시스</b><span class="d">해수온천 · 야외 노천탕, 해운대 파노라마 뷰 (최소 3시간)</span><span class="mv">↓ 택시 5분</span></li>
+<li><a class="sn cafe" href="#p-12" aria-label="12번 장소 설명 보기">12</a><b>비비비당</b><span class="d">달맞이길 찻집에서 전통차 · 단팥빙수 (약 1시간)</span></li>
 </ol>
 </article>
 <article class="course">
-<div class="chead"><span class="cno">코스 4</span><h3>마린시티 · 센텀 여유롭게</h3><span class="total">총 약 6시간</span><span class="when">차로 · 점심 무렵 출발</span></div>
+<div class="chead"><div class="ctop"><span class="cno">코스 4</span><span class="mode car">자차 코스</span></div><h3>해목 점심 + 센텀 스파</h3><span class="total">총 약 6시간</span><span class="when">점심 무렵 출발</span></div>
 <ol class="route">
-<li><a class="sn food" href="#p-5" aria-label="5번 장소 설명 보기">5</a><b>해목 해운대점</b><span class="d">점심 · 장어덮밥 히츠마부시 (약 50분)</span><span class="mv">↓ 차 10분</span></li>
-<li><a class="sn cafe" href="#p-11" aria-label="11번 장소 설명 보기">11</a><b>모모스커피 마린시티점</b><span class="d">바다 보며 스페셜티 커피 (약 40분)</span><span class="mv">↓ 걸어서 5분</span></li>
-<li><a class="sn cafe" href="#p-18" aria-label="18번 장소 설명 보기">18</a><b>옵스 마린시티점</b><span class="d">슈크림 · 치즈만주 사서 선물로 (약 20분)</span><span class="mv">↓ 차 10분</span></li>
-<li><a class="sn spot" href="#p-19" aria-label="19번 장소 설명 보기">19</a><b>스파랜드 센텀시티</b><span class="d">온천 · 찜질로 푹 쉬기 (약 2시간 30분)</span><span class="mv">↓ 차 15분</span></li>
-<li><a class="sn food" href="#p-6" aria-label="6번 장소 설명 보기">6</a><b>해운대암소갈비집</b><span class="d">저녁 · 생갈비 · 양념갈비 (약 1시간 10분)</span></li>
+<li><a class="sn food" href="#p-5" aria-label="5번 장소 설명 보기">5</a><b>해목 해운대점<span class="wait">웨이팅 주의</span></b><span class="d">점심 · 장어덮밥 히츠마부시 (약 50분)</span><span class="mv">↓ 자차 15분</span></li>
+<li><a class="sn spot" href="#p-19" aria-label="19번 장소 설명 보기">19</a><b>스파랜드 센텀시티</b><span class="d">온천 · 찜질로 푹 쉬기 (최소 3시간)</span><span class="mv">↓ 자차 10분</span></li>
+<li><a class="sn cafe" href="#p-11" aria-label="11번 장소 설명 보기">11</a><b>모모스커피 마린시티점</b><span class="d">바다 보며 스페셜티 커피 (약 40분)</span><span class="mv">↓ 자차 5분</span></li>
+<li><a class="sn food" href="#p-9" aria-label="9번 장소 설명 보기">9</a><b>거대곰탕 해운대점<span class="wait">웨이팅 주의</span></b><span class="d">저녁 · 한우곰탕 (약 40분)</span></li>
 </ol>
 </article>
 <article class="course">
-<div class="chead"><span class="cno">코스 5</span><h3>오시리아 가족 나들이</h3><span class="total">총 약 8시간</span><span class="when">차로 · 아침 일찍 출발</span></div>
+<div class="chead"><div class="ctop"><span class="cno">코스 5</span><span class="mode car">자차 코스</span></div><h3>송정 → 해동용궁사 → 롯데월드</h3><span class="total">총 약 6시간 30분</span><span class="when">오전 늦게 출발 · 가족과 함께</span></div>
 <ol class="route">
-<li><a class="sn spot" href="#p-26" aria-label="26번 장소 설명 보기">26</a><b>해동용궁사</b><span class="d">사람 적은 아침에 바다 절 구경 (약 1시간)</span><span class="mv">↓ 차 5분</span></li>
-<li><a class="sn spot" href="#p-23" aria-label="23번 장소 설명 보기">23</a><b>롯데월드 어드벤처 부산</b><span class="d">테마파크 (약 3시간)</span><span class="mv">↓ 걸어서 10분</span></li>
-<li><a class="sn spot" href="#p-24" aria-label="24번 장소 설명 보기">24</a><b>롯데프리미엄아울렛 동부산점</b><span class="d">아울렛에서 쇼핑하고 식사 (약 1시간 30분)</span><span class="mv">↓ 차 5분</span></li>
-<li><a class="sn spot" href="#p-25" aria-label="25번 장소 설명 보기">25</a><b>이케아 동부산점</b><span class="d">가구 · 생활용품 구경 (약 1시간)</span><span class="mv">↓ 차 20분</span></li>
-<li><a class="sn cafe" href="#p-10" aria-label="10번 장소 설명 보기">10</a><b>스윕세컨드 로스터리</b><span class="d">정관 핸드드립 커피로 마무리 (약 40분)</span></li>
+<li><a class="sn food" href="#p-3" aria-label="3번 장소 설명 보기">3</a><b>송정횟집</b><span class="d">점심 · 송정 바다 옆 모둠회 (약 1시간 20분). 가게 주차가 어려워 근처 공영주차장 이용</span><span class="mv">↓ 자차 10분</span></li>
+<li><a class="sn spot" href="#p-26" aria-label="26번 장소 설명 보기">26</a><b>해동용궁사</b><span class="d">바닷가 절벽 위 절 구경, 계단이 있어요 (약 1시간)</span><span class="mv">↓ 자차 5분</span></li>
+<li><a class="sn cafe" href="#p-15" aria-label="15번 장소 설명 보기">15</a><b>갓샷</b><span class="d">오션뷰 카페에서 쉬어가기 (약 50분)</span><span class="mv">↓ 자차 10분</span></li>
+<li><a class="sn spot" href="#p-23" aria-label="23번 장소 설명 보기">23</a><b>롯데월드 어드벤처 부산</b><span class="d">테마파크 (약 3시간)</span></li>
 </ol>
+<p class="extra">+ 시간이 남으면 바로 옆 24 롯데프리미엄아울렛 · 25 이케아도 함께 둘러보세요</p>
 </article>
 </div>
 </section>
@@ -212,15 +216,15 @@ html{scroll-behavior:smooth}
 </div>
 <script>
 const PLACES = [
-{type:"food",name:"나가하마만게츠",star:1,area:"해운대",desc:"진한 돈코츠 국물의 정통 일본식 라멘집이에요.",menu:"돈코츠 · 차슈라멘",park:0,q:"나가하마만게츠 해운대"},
-{type:"food",name:"엄용백돼지국밥 해운대점",star:1,area:"해운대 구남로",desc:"깊은 맛의 부산식 돼지국밥과 수육이에요.",menu:"돼지국밥 · 수육",park:1,q:"엄용백돼지국밥 해운대점"},
+{type:"food",name:"나가하마만게츠",wait:1,star:1,area:"해운대",desc:"진한 돈코츠 국물의 정통 일본식 라멘집이에요.",menu:"돈코츠 · 차슈라멘",park:0,q:"나가하마만게츠 해운대"},
+{type:"food",name:"엄용백돼지국밥 해운대점",wait:1,star:1,area:"해운대 구남로",desc:"깊은 맛의 부산식 돼지국밥과 수육이에요.",menu:"돼지국밥 · 수육",park:1,q:"엄용백돼지국밥 해운대점"},
 {type:"food",name:"송정횟집",star:0,area:"송정",desc:"송정 바다 옆 현지인 횟집이에요.",menu:"모둠회",park:0,q:"송정횟집 부산"},
-{type:"food",name:"속시원한대구탕 미포본점",star:0,area:"미포",desc:"시원하고 맑은 대구탕 전문점이에요. 다음 날 해장으로 좋아요.",menu:"맑은 대구탕",park:1,q:"속시원한대구탕 미포본점"},
-{type:"food",name:"해목 해운대점",star:1,area:"해운대 구남로",desc:"장어덮밥과 카이센동으로 인기 있는 일식집이에요.",menu:"히츠마부시(장어덮밥)",park:1,q:"해목 해운대점"},
-{type:"food",name:"해운대암소갈비집",star:1,area:"해운대 중동",desc:"오랜 전통의 부산 한우 갈비 명가예요.",menu:"생갈비 · 양념갈비",park:1,q:"해운대암소갈비집"},
-{type:"food",name:"상국이네",star:0,area:"해운대시장",desc:"해운대시장의 명물 분식집이에요.",menu:"떡볶이 · 어묵",park:0,q:"상국이네 해운대"},
+{type:"food",name:"속시원한대구탕 미포본점",wait:1,star:0,area:"미포",desc:"시원하고 맑은 대구탕 전문점이에요. 다음 날 해장으로 좋아요.",menu:"맑은 대구탕",park:1,q:"속시원한대구탕 미포본점"},
+{type:"food",name:"해목 해운대점",wait:1,star:1,area:"해운대 구남로",desc:"장어덮밥과 카이센동으로 인기 있는 일식집이에요.",menu:"히츠마부시(장어덮밥)",park:1,q:"해목 해운대점"},
+{type:"food",name:"해운대암소갈비집",wait:1,star:1,area:"해운대 중동",desc:"오랜 전통의 부산 한우 갈비 명가예요.",menu:"생갈비 · 양념갈비",park:1,q:"해운대암소갈비집"},
+{type:"food",name:"상국이네",wait:1,star:0,area:"해운대시장",desc:"해운대시장의 명물 분식집이에요.",menu:"떡볶이 · 어묵",park:0,q:"상국이네 해운대"},
 {type:"food",name:"일광아구찜",star:0,area:"기장 일광",desc:"매콤하고 푸짐한 기장식 아구찜이에요.",menu:"아구찜",park:0,q:"일광아구찜 기장"},
-{type:"food",name:"거대곰탕 해운대점",star:0,area:"해운대",desc:"깊고 진한 국물의 한우 곰탕 전문점이에요.",menu:"한우곰탕",park:1,q:"거대곰탕 해운대점"},
+{type:"food",name:"거대곰탕 해운대점",wait:1,star:0,area:"해운대",desc:"깊고 진한 국물의 한우 곰탕 전문점이에요.",menu:"한우곰탕",park:1,q:"거대곰탕 해운대점"},
 {type:"cafe",name:"스윕세컨드 로스터리",star:0,area:"기장 정관",desc:"정관 현지인이 찾는 핸드드립 전문 커피 맛집이에요.",menu:"핸드드립 커피",park:1,q:"스윕세컨드 로스터리 정관"},
 {type:"cafe",name:"모모스커피 마린시티점",star:1,area:"마린시티",desc:"바다가 보이는 스페셜티 커피 카페예요. 예식장과 가까워요.",menu:"핸드드립 커피",park:0,q:"모모스커피 마린시티점"},
 {type:"cafe",name:"비비비당",star:0,area:"달맞이길",desc:"바다를 보며 전통차와 단팥빙수를 즐기는 차분한 찻집이에요.",menu:"전통차 · 단팥빙수",park:1,q:"비비비당 부산"},
@@ -230,8 +234,8 @@ const PLACES = [
 {type:"cafe",name:"칠암사계",star:0,area:"기장 칠암",desc:"이흥용 제과명장이 만든 바닷가 베이커리 카페예요.",menu:"칠암돌만주",park:1,q:"칠암사계 기장"},
 {type:"cafe",name:"웨이브온커피",star:0,area:"기장 장안",desc:"건축미와 기장 바다 전망이 돋보이는 카페예요.",menu:"아메리카노",park:1,q:"웨이브온커피"},
 {type:"cafe",name:"옵스 마린시티점",star:0,area:"마린시티",desc:"부산을 대표하는 베이커리예요. 선물용으로도 좋아요.",menu:"슈크림 · 치즈만주",park:1,q:"옵스 마린시티점"},
-{type:"spot",name:"스파랜드 센텀시티",star:0,area:"센텀시티",desc:"신세계백화점 안 대형 온천 · 찜질 스파예요. 추운 날 추천해요.",menu:"온천 · 테마찜질",park:1,q:"스파랜드 센텀시티"},
-{type:"spot",name:"클럽디오아시스",star:0,area:"해운대 엘시티",desc:"엘시티의 해수온천과 실내 워터파크예요.",menu:"해수온천 · 워터파크",park:1,q:"클럽디오아시스"},
+{type:"spot",name:"스파랜드 센텀시티",star:0,area:"센텀시티",desc:"신세계백화점 안 대형 온천 · 찜질 스파예요. 추운 날 딱이고, 최소 3시간은 잡으세요.",menu:"온천 · 테마찜질",park:1,q:"스파랜드 센텀시티"},
+{type:"spot",name:"클럽디오아시스",star:0,area:"해운대 엘시티",desc:"엘시티 해수온천이에요. 겨울에도 야외 노천탕을 즐길 수 있고 해운대 파노라마 뷰가 최고예요. 최소 3시간은 잡으세요.",menu:"해수온천 · 워터파크",park:1,q:"클럽디오아시스"},
 {type:"spot",name:"해운대전통시장",star:0,area:"해운대 구남로",desc:"부산 먹거리와 정겨운 시장 골목이에요.",menu:"시장 먹거리",park:1,q:"해운대전통시장"},
 {type:"spot",name:"해운대블루라인파크",star:0,area:"미포 ~ 송정",desc:"바다를 따라 달리는 해변열차와 스카이캡슐이에요.",menu:"해변열차 · 스카이캡슐",park:1,q:"해운대블루라인파크 미포정거장"},
 {type:"spot",name:"롯데월드 어드벤처 부산",star:0,area:"기장 오시리아",desc:"온 가족이 즐기는 기장의 테마파크예요.",menu:"놀이기구 · 퍼레이드",park:1,q:"롯데월드 어드벤처 부산"},
@@ -266,9 +270,9 @@ const el = document.createElement('article');
 el.className = 'place'; el.id = 'p-'+p.n; el.dataset.type = p.type;
 const KIND={food:'식사',cafe:'카페',spot:'여행지'}, ML={food:'대표 메뉴',cafe:'대표 메뉴',spot:'추천'};
 el.innerHTML = `
-<div class="phead"><span class="num ${p.type}">${p.n}</span><div><h3 class="pname">${p.name}${p.star?'<span class="star" aria-label="강력 추천">✿</span>':''}</h3><div class="area"><span class="kind ${p.type}">${KIND[p.type]}</span>${p.area}</div></div></div>
+<div class="phead"><span class="num ${p.type}">${p.n}</span><div><h3 class="pname">${p.name}${p.star?'<span class="star" aria-label="미쉐린 가이드 선정">✿</span>':''}</h3><div class="area"><span class="kind ${p.type}">${KIND[p.type]}</span>${p.area}</div></div></div>
 <p class="desc">${p.desc}</p>
-<div class="meta"><p class="menu ${p.type}" style="margin:0"><b>${ML[p.type]}</b>${p.menu}</p><span class="park ${p.park?'ok':'no'}">${p.park?'주차 가능':'주차 어려움'}</span></div>
+<div class="meta"><p class="menu ${p.type}" style="margin:0"><b>${ML[p.type]}</b>${p.menu}</p><span class="park ${p.park?'ok':'no'}">${p.park?'주차 가능':'주차 어려움'}</span>${p.wait?'<span class="wait">웨이팅 주의</span>':''}</div>
 <div class="btns">
 <a class="btn t" href="${tmapHref(p.q)}">T맵 길찾기</a>
 <a class="btn n" href="https://map.naver.com/p/search/${enc(p.q)}">네이버 길찾기</a>
