@@ -107,6 +107,9 @@ footer .script{font-size:44px;margin:0}
 .course-note{font-size:16px;color:var(--sub);text-align:center;margin:-6px 0 14px}
 html{scroll-behavior:smooth}
 .place{scroll-margin-top:12px}
+.ctabs{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:0 0 14px}
+.ctab{font-family:var(--body);font-size:16px;font-weight:700;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:12px;padding:6px 2px;min-height:48px;cursor:pointer}
+.ctab[aria-pressed="true"]{background:var(--sea);color:#fff;border-color:var(--sea)}
 @media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
 </head>
@@ -147,6 +150,7 @@ html{scroll-behavior:smooth}
 <section class="section" aria-labelledby="course-h">
 <h2 id="course-h">추천 코스</h2>
 <p class="course-note">짧은 코스부터 긴 코스 순서예요. 동그라미 번호를 누르면 장소 설명으로 이동해요.</p>
+<div class="ctabs" role="group" aria-label="코스 고르기"><button class="ctab" type="button" aria-pressed="true" data-c="1">코스 1</button><button class="ctab" type="button" aria-pressed="false" data-c="2">코스 2</button><button class="ctab" type="button" aria-pressed="false" data-c="3">코스 3</button><button class="ctab" type="button" aria-pressed="false" data-c="4">코스 4</button><button class="ctab" type="button" aria-pressed="false" data-c="5">코스 5</button></div>
 <div class="courses">
 <article class="course">
 <div class="chead"><span class="cno">코스 1</span><h3>해운대 시내 걸어서 먹방</h3><span class="total">총 약 4시간 30분</span><span class="when">걸어서 · 점심 무렵 출발</span></div>
@@ -276,6 +280,10 @@ document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-pressed', Stri
 document.querySelectorAll('.place').forEach(el=>{ el.hidden = !(f==='all' || el.dataset.type===f); });
 }
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.f)));
+const courses=[...document.querySelectorAll('.course')];
+function showCourse(c){ document.querySelectorAll('.ctab').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.c===c))); courses.forEach((el,i)=>{ el.hidden = String(i+1)!==c; }); }
+document.querySelectorAll('.ctab').forEach(b=>b.addEventListener('click',()=>showCourse(b.dataset.c)));
+showCourse('1');
 </script>
 </body>
 </html>
