@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>영진 ♥ 소희의 부산 가이드</title>
+<meta property="og:title" content="영진 ♥ 소희의 부산 가이드">
+<meta property="og:description" content="해운대 근처 맛집과 구경할 곳, 추천 코스">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hurricane&family=Noto+Serif+KR:wght@400;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+/* layout: 어르신도 읽기 쉬운 한 줄 세로 흐름 — 표지 → 지도 사진 2장 → 장소 카드 → 추천 동선 */
+--paper:#f7f4ee;
+--card:#ffffff;
+--ink:#1f1f1f;
+--sub:#444240;
+--sea:#2e4a5c;
+--rose:#b5655f;
+--line:#ddd6c9;
+--display:"Hurricane", "Noto Serif KR", cursive;
+--title:"Noto Serif KR", "Nanum Myeongjo", serif;
+--body:"Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+color-scheme: light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.8;word-break:keep-all;-webkit-font-smoothing:antialiased}
+.wrap{max-width:480px;margin:0 auto;padding:0 18px 64px}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sea);outline-offset:2px;border-radius:8px}
+.cover{text-align:center;padding:44px 0 20px}
+.sample{display:inline-block;font-size:13px;letter-spacing:.06em;color:var(--rose);border:1px solid var(--rose);border-radius:999px;padding:1px 12px;margin-bottom:12px}
+.date{font-family:var(--title);letter-spacing:.25em;font-size:16px;color:var(--sub)}
+.script{font-family:var(--display);font-size:60px;line-height:1;color:var(--sea);margin:12px 0 6px}
+.cover h1{font-family:var(--title);font-size:26px;font-weight:700;margin:6px 0 0;text-wrap:balance}
+.cover p{font-size:18px;color:var(--sub);margin:16px auto 0}
+.section{margin-top:44px}
+.section h2{font-family:var(--title);font-size:24px;font-weight:700;text-align:center;margin:0 0 18px;text-wrap:balance}
+.photos{display:grid;gap:16px}
+.photo{margin:0;background:var(--card);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.photo img{display:block;width:100%;height:auto}
+.ph{aspect-ratio:4/3;display:grid;place-items:center;text-align:center;background:repeating-linear-gradient(45deg,#f1ece2,#f1ece2 12px,#ebe4d6 12px,#ebe4d6 24px);color:var(--sub);font-size:20px;font-weight:700;line-height:1.5}
+.ph small{font-size:15px;font-weight:400}
+.photo figcaption{font-size:17px;color:var(--sub);text-align:center;padding:12px 14px}
+.tabs{display:flex;gap:8px;justify-content:center;margin:0 0 16px}
+.tab{font-family:var(--body);font-size:18px;font-weight:500;border:2px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 20px;min-height:48px;cursor:pointer}
+.tab[aria-pressed="true"]{background:var(--sea);color:#fff;border-color:var(--sea)}
+.list{display:grid;gap:16px}
+.place{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px;display:grid;gap:10px}
+.phead{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center}
+.num{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-size:17px;font-weight:700;color:#fff}
+.num.food{background:var(--rose)}
+.num.spot{background:var(--sea)}
+.pname{font-family:var(--title);font-size:22px;font-weight:700;margin:0;line-height:1.35}
+.kind{display:inline-block;font-size:15px;font-weight:700;border-radius:6px;padding:0 8px;margin-right:6px}
+.kind.food{color:var(--rose);background:#f7e9e7}
+.kind.spot{color:var(--sea);background:#e6edf1}
+.area{font-size:16px;color:var(--sub)}
+.desc{font-size:18px;margin:0}
+.tip{font-size:17px;background:var(--paper);border-radius:10px;padding:12px 14px;margin:0}
+.tip b{color:var(--sea)}
+.btns{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:4px}
+.btn{display:flex;align-items:center;justify-content:center;font-size:17px;font-weight:700;text-decoration:none;border:2px solid var(--line);border-radius:12px;min-height:52px;color:var(--ink)}
+.btn.t{border-color:#3d6df2;background:#4b7bff;color:#fff}
+.btn.n{border-color:#03a94d;background:#03c75a;color:#fff}
+.courses{display:grid;gap:16px}
+.course{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px 18px}
+.chead{display:grid;gap:2px;margin-bottom:12px}
+.cno{justify-self:start;font-size:15px;font-weight:700;color:#fff;background:var(--sea);border-radius:999px;padding:1px 12px}
+.chead h3{font-family:var(--title);font-size:22px;font-weight:700;margin:4px 0 0;line-height:1.35}
+.when{font-size:16px;color:var(--sub)}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:0;counter-reset:st}
+.steps li{position:relative;padding:0 0 16px 42px;counter-increment:st}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:counter(st);position:absolute;left:0;top:2px;width:28px;height:28px;border-radius:50%;background:var(--paper);border:2px solid var(--sea);color:var(--sea);font-weight:700;font-size:15px;display:grid;place-items:center}
+.steps li:not(:last-child)::after{content:"";position:absolute;left:13px;top:32px;bottom:2px;width:2px;background:var(--line)}
+.steps b{display:block;font-size:18px}
+.steps span{display:block;font-size:16px;color:var(--sub)}
+footer{margin-top:44px;text-align:center;font-size:16px;color:var(--sub);display:grid;gap:6px}
+footer .script{font-size:44px;margin:0}
+#note{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--ink);color:#fff;font-size:17px;padding:12px 18px;border-radius:12px;opacity:0;pointer-events:none;transition:opacity .2s}
+#note.on{opacity:1}
+@media (prefers-reduced-motion: reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="cover">
+<span class="sample">SAMPLE</span>
+<div class="date">2027 · 02 · 13</div>
+<div class="script">Busan Guide</div>
+<h1>영진 ♥ 소희가 추천하는 부산</h1>
+<p>멀리서 와주시는 분들을 위해<br>저희가 좋아하는 해운대 근처<br>맛집과 구경할 곳을 모았습니다.<br>예식 전후로 부산 바다 즐기다 가세요.</p>
+</header>
+<section class="section" aria-labelledby="map-h">
+<h2 id="map-h">한눈에 보는 지도</h2>
+<div class="photos">
+<figure class="photo">
+<div class="ph" role="img" aria-label="지도 사진이 들어갈 자리">지도 사진<br><small>(사진 넣을 자리)</small></div>
+<figcaption>해운대 · 광안리 추천 장소 지도</figcaption>
+</figure>
+<figure class="photo">
+<div class="ph" role="img" aria-label="설명 사진이 들어갈 자리">설명 사진<br><small>(사진 넣을 자리)</small></div>
+<figcaption>지도 속 장소 설명</figcaption>
+</figure>
+</div>
+</section>
+<section class="section" aria-labelledby="list-h">
+<h2 id="list-h">저희가 추천하는 곳</h2>
+<div class="tabs" role="group" aria-label="장소 종류 고르기">
+<button class="tab" id="tab-all" type="button" aria-pressed="true" data-f="all">전체</button>
+<button class="tab" id="tab-food" type="button" aria-pressed="false" data-f="food">맛집</button>
+<button class="tab" id="tab-spot" type="button" aria-pressed="false" data-f="spot">여행지</button>
+</div>
+<div class="list" id="list"></div>
+</section>
+<section class="section" aria-labelledby="course-h">
+<h2 id="course-h">추천 코스</h2>
+<div class="courses">
+<article class="course">
+<div class="chead"><span class="cno">코스 1</span><h3>예식 끝나고 바다 산책</h3><span class="when">예식 당일 오후 · 약 3시간</span></div>
+<ol class="steps">
+<li><b>동백섬 해안 산책로</b><span>예식장에서 가까워요. 누리마루까지 천천히 30분</span></li>
+<li><b>더베이101</b><span>해 질 무렵 마린시티 야경, 커피 한잔</span></li>
+<li><b>해운대해수욕장</b><span>백사장 따라 겨울 바다 구경</span></li>
+<li><b>저녁 · 해운대암소갈비집</b><span>1964년부터 이어온 한우갈비. 주말 저녁은 대기가 있어요</span></li>
+</ol>
+</article>
+<article class="course">
+<div class="chead"><span class="cno">코스 2</span><h3>토요일 밤 드론쇼</h3><span class="when">예식 당일 저녁 · 약 3시간</span></div>
+<ol class="steps">
+<li><b>저녁 · 대도식당 (더베이101 2층)</b><span>야경 보면서 한우 등심</span></li>
+<li><b>광안리해수욕장으로 이동</b><span>차로 약 15~20분, 주말 저녁엔 막힐 수 있어요</span></li>
+<li><b>광안리 M 드론라이트쇼</b><span>겨울엔 저녁 7시·9시 두 번, 무료. 날씨가 나쁘면 취소될 수 있어요</span></li>
+<li><b>2차 · 해성막창</b><span>해운대로 돌아와 막창에 한잔</span></li>
+</ol>
+</article>
+<article class="course">
+<div class="chead"><span class="cno">코스 3</span><h3>다음 날 해장하고 해변열차</h3><span class="when">2월 14일 일요일 오전 · 약 4시간</span></div>
+<ol class="steps">
+<li><b>아침 · 금수복국 또는 속시원한대구탕</b><span>맑은 국물로 속풀이. 금수복국은 24시간 영업</span></li>
+<li><b>해운대 블루라인파크 해변열차</b><span>미포에서 타고 바다 바로 옆을 달려요</span></li>
+<li><b>청사포에서 내려 바다 구경</b><span>빨간 등대·하얀 등대가 있는 작은 포구</span></li>
+<li><b>해리단길 카페</b><span>돌아와서 커피 한잔하고 출발</span></li>
+</ol>
+</article>
+</div>
+</section>
+<footer>
+<div class="script">Thank you</div>
+<span>김영진 · 안소희 드림</span>
+<span>영업시간과 쉬는 날은 바뀔 수 있어요.<br>가시기 전에 지도 앱에서 한 번 확인해 주세요.</span>
+</footer>
+</div>
+<script>
+const PLACES = [
+{id:"f1", type:"food", name:"금수복국 해운대본점", area:"해운대 중동",
+q:"금수복국 해운대본점",
+desc:"뚝배기 복국을 처음 만든 집으로 알려진 복국 전문점이에요. 맑은 복지리 국물이 시원해서 해장으로 최고예요.",
+tip:"<b>추천</b> 밀복국 · 까치복국 / 24시간 영업, 미쉐린 가이드 선정"},
+{id:"f2", type:"food", name:"해운대암소갈비집", area:"해운대 중동",
+q:"해운대암소갈비집",
+desc:"1964년부터 이어온 해운대 원조 한우갈비집이에요. 양념이 진하지 않아 고기 맛이 그대로 살아 있어요.",
+tip:"<b>추천</b> 생갈비 · 양념갈비, 마무리는 감자사리와 된장찌개"},
+{id:"f3", type:"food", name:"대도식당 (더베이101)", area:"동백섬 입구",
+q:"더베이101 대도식당",
+desc:"더베이101 2층에 있는 한우 등심집이에요. 창밖으로 마린시티 야경을 보며 식사할 수 있어요.",
+tip:"<b>추천</b> 한우 등심, 마무리 볶음밥 / 예식장에서 가까워요"},
+{id:"f4", type:"food", name:"속시원한대구탕", area:"해운대",
+q:"속시원한대구탕 해운대",
+desc:"맑게 끓인 대구탕 한 그릇으로 속이 풀리는 곳이에요. 아침 일찍부터 해장하러 오는 손님이 많아요.",
+tip:"<b>추천</b> 대구탕 / 다음 날 아침 메뉴로 좋아요"},
+{id:"f5", type:"food", name:"해성막창", area:"해운대",
+q:"해성막창 해운대",
+desc:"부산 사람들이 막창 하면 떠올리는 집이에요. 연탄불에 구운 막창에 소주 한잔하기 좋아요.",
+tip:"<b>추천</b> 소막창 / 저녁 2차 장소로 추천"},
+{id:"s1", type:"spot", name:"더베이101", area:"동백섬 입구",
+q:"더베이101",
+desc:"마린시티 고층 빌딩 야경이 정면으로 보이는 곳이에요. 카페·식당·요트클럽이 모여 있어요.",
+tip:"<b>팁</b> 해 질 무렵 선셋 요트투어(약 1시간)도 운영해요"},
+{id:"s2", type:"spot", name:"동백섬 · 누리마루 APEC하우스", area:"동백섬",
+q:"누리마루 APEC하우스",
+desc:"섬을 한 바퀴 도는 해안 산책로가 있어요. 바다 건너 광안대교와 해운대 백사장이 다 보여요.",
+tip:"<b>팁</b> 예식 끝나고 가볍게 걷기 좋은 첫 코스"},
+{id:"s3", type:"spot", name:"해운대해수욕장", area:"해운대",
+q:"해운대해수욕장",
+desc:"부산 하면 떠오르는 그 바다예요. 겨울 바다는 사람이 적어서 더 여유로워요.",
+tip:"<b>팁</b> 백사장 따라 걸으면 미포·블루라인파크까지 이어져요"},
+{id:"s4", type:"spot", name:"해리단길", area:"옛 해운대역 뒤",
+q:"해리단길",
+desc:"옛 해운대역 뒤편 골목에 작은 카페와 식당이 모여 생긴 거리예요.",
+tip:"<b>팁</b> 식사 후 커피 한잔하기 좋은 동네"},
+{id:"s5", type:"spot", name:"해운대 블루라인파크", area:"미포 → 청사포",
+q:"해운대 블루라인파크",
+desc:"바다 바로 옆 옛 철길을 달리는 해변열차와 하늘 위 스카이캡슐이 있어요.",
+tip:"<b>팁</b> 미포에서 타고 청사포에서 내려 바다 구경하고 돌아오기"},
+{id:"s6", type:"spot", name:"광안리 · M 드론라이트쇼", area:"광안리",
+q:"광안리해수욕장",
+desc:"광안대교를 배경으로 매주 토요일 밤 드론 1,000여 대가 하늘에 그림을 그려요. 예식 날이 마침 토요일이에요.",
+tip:"<b>시간</b> 겨울(10~2월) 저녁 7시·9시, 무료 / 날씨에 따라 취소될 수 있어요"}
+];
+const enc = s => encodeURIComponent(s);
+const UA = navigator.userAgent || '';
+function tmapHref(q){
+if(/Android/i.test(UA)) return 'intent://search?name='+enc(q)+'#Intent;scheme=tmap;package=com.skt.tmap.ku;end';
+return 'tmap://search?name='+enc(q);
+}
+document.addEventListener('click', e=>{
+const a = e.target.closest('a.btn.t'); if(!a) return;
+if(!/Android|iPhone|iPad|iPod/i.test(UA)){ e.preventDefault(); showNote('T맵 길찾기는 휴대폰에서 눌러주세요.'); return; }
+if(/iPhone|iPad|iPod/i.test(UA)){
+const t=setTimeout(()=>{ if(!document.hidden) location.href='https://apps.apple.com/kr/app/id431589174'; },1600);
+document.addEventListener('visibilitychange',()=>clearTimeout(t),{once:true});
+}
+});
+function showNote(msg){
+let n=document.getElementById('note');
+if(!n){ n=document.createElement('div'); n.id='note'; n.setAttribute('role','status'); document.body.appendChild(n); }
+n.textContent=msg; n.classList.add('on'); clearTimeout(n._t); n._t=setTimeout(()=>n.classList.remove('on'),2600);
+}
+const list = document.getElementById('list');
+PLACES.forEach((p,i)=>{
+p.n = i+1;
+const el = document.createElement('article');
+el.className = 'place'; el.id = 'p-'+p.id; el.dataset.type = p.type;
+el.innerHTML = `
+<div class="phead"><span class="num ${p.type}">${p.n}</span><div><h3 class="pname">${p.name}</h3><div class="area"><span class="kind ${p.type}">${p.type==='food'?'맛집':'여행지'}</span>${p.area}</div></div></div>
+<p class="desc">${p.desc}</p>
+<p class="tip">${p.tip}</p>
+<div class="btns">
+<a class="btn t" href="${tmapHref(p.q)}">T맵 길찾기</a>
+<a class="btn n" href="https://map.naver.com/p/search/${enc(p.q)}">네이버 길찾기</a>
+</div>`;
+list.appendChild(el);
+});
+function setFilter(f){
+document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-pressed', String(b.dataset.f===f)));
+document.querySelectorAll('.place').forEach(el=>{ el.hidden = !(f==='all' || el.dataset.type===f); });
+}
+document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.f)));
+</script>
+</body>
+</html>
