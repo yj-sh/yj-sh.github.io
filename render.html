@@ -11,7 +11,7 @@
  doc.querySelectorAll('.course').forEach(c=>{const w=document.createElement('div'); w.className='wrap shot'; const cc=c.cloneNode(true); cc.hidden=false; cc.querySelectorAll('a.sn').forEach(a=>a.removeAttribute('href')); w.appendChild(cc); document.body.appendChild(w);});
  await document.fonts.ready; await new Promise(r=>setTimeout(r,1500)); await document.fonts.ready;
  const out=[];
- for(const w of document.querySelectorAll('.shot')){ const url=await htmlToImage.toJpeg(w,{pixelRatio:3,quality:0.9,backgroundColor:'#f7f4ee'}); out.push(await (await fetch(url)).arrayBuffer()); }
+ for(const w of document.querySelectorAll('.shot')){ let buf=new ArrayBuffer(0); for(let k=0;k<6 && buf.byteLength<5000;k++){ const url=await htmlToImage.toJpeg(w,{pixelRatio:3,quality:0.9,backgroundColor:'#f7f4ee'}); buf=await (await fetch(url)).arrayBuffer(); if(buf.byteLength<5000) await new Promise(r=>setTimeout(r,800)); } out.push(buf); }
  window.__out=out;
  if(parent!==window) parent.postMessage({kind:'courses',buffers:out},'*',out);
 })();
