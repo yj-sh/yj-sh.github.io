@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="robots" content="noindex"><title>render</title></head>
+<body style="margin:0">
+<script src="https://cdn.jsdelivr.net/npm/html-to-image@1.11.11/dist/html-to-image.js"></script>
+<script>
+(async()=>{
+ const html=await (await fetch('index.html?t='+Date.now())).text();
+ const doc=new DOMParser().parseFromString(html,'text/html');
+ doc.head.querySelectorAll('link,style').forEach(n=>document.head.appendChild(n.cloneNode(true)));
+ const st=document.createElement('style'); st.textContent='.shot{width:390px;padding:16px;box-sizing:border-box;background:#f7f4ee;margin:0}'; document.head.appendChild(st);
+ doc.querySelectorAll('.course').forEach(c=>{const w=document.createElement('div'); w.className='wrap shot'; const cc=c.cloneNode(true); cc.hidden=false; cc.querySelectorAll('a.sn').forEach(a=>a.removeAttribute('href')); w.appendChild(cc); document.body.appendChild(w);});
+ await document.fonts.ready; await new Promise(r=>setTimeout(r,1500)); await document.fonts.ready;
+ const out=[];
+ for(const w of document.querySelectorAll('.shot')){ const url=await htmlToImage.toJpeg(w,{pixelRatio:3,quality:0.9,backgroundColor:'#f7f4ee'}); out.push(await (await fetch(url)).arrayBuffer()); }
+ window.__out=out;
+ if(parent!==window) parent.postMessage({kind:'courses',buffers:out},'*',out);
+})();
+</script>
+</body></html>
